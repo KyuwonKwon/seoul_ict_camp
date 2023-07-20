@@ -6,27 +6,36 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>지금 우리동네는 얼마나 빨갈까?</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+        <script>
+            function submitForm(event) {
+                event.preventDefault();
+                
+                let url = document.getElementsByClassName('search-bar-input')[0].value;
+                let win = window.open(`https://map.naver.com/v5/search/${url}`, '_blank');
+                win.focus();
+            }
+        </script>
     </head>
     <body>
         <main>
             <div class="search-bar">
-                <form class="search-area">
+                <form onsubmit="submitForm(event)" class="search-area">
                     <input type="search" placeholder="동/읍/면을 입력해 주세요" class="search-bar-input" >
-                    <button type="submit" class="search-bar-btn">
-                        <span class="search-bar-btn-icon">검색</span>
-                    </button>
+                    <input type="submit" class="material-icons search-bar-btn search-bar-btn-icon" value="search"></input>
                 </form>
             </div>
             <div class="map-controller">
                 <div class="button-group">
                     <a href="#" class="btn btn-my-rotation">
-                        <span class="btn-my-rotation-icon">현재 위치로</span>
+                        <span class="material-icons btn-my-rotation-icon">my_location</span>
                     </a>
                     <a href="#" class="btn btn-zoom-in">
-                        <span class="btn-zoom-in-icon">줌인</span>
-                    </a>d
+                        <span class="material-icons btn-zoom-in-icon">add</span>
+                    </a>
                     <a href="#" class="btn btn-zoom-out">
-                        <span class="btn-zoom-out-icon">줌아웃</span>
+                        <span class="material-icons btn-zoom-out-icon">remove</span>
                     </a>
                 </div>
             </div>
@@ -40,7 +49,7 @@
                     /OpenStreetMap
                 </a>
             </div>
-            <div class="map-scale">
+            <div class="map-scale">축척
             </div>
         </footer>
     </body>
